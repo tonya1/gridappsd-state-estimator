@@ -7,7 +7,7 @@ SSINCPATH=$(SSPATH)/include
 AMQINCPATH=/gridappsd/include/activemq-cpp-3.9.4
 # APR is part of the Linux distro by default, hopefully here
 APRINCPATH=/usr/include/apr-1.0
-INCLUDES=-I${GRIDAPPSD}/include -I$(JSONINCPATH) -I$(SSINCPATH) -I$(AMQINCPATH) -I$(APRINCPATH) -I./include
+INCLUDES=-I$(GRIDAPPSD)/include -I$(JSONINCPATH) -I$(SSINCPATH) -I$(AMQINCPATH) -I$(APRINCPATH) -I./include
 
 # SparseSuite libraries
 SSCONFLIBPATH=$(SSPATH)/SuiteSparse_config
@@ -17,7 +17,7 @@ BTFLIBPATH=$(SSPATH)/BTF/Lib
 COLAMDLIBPATH=$(SSPATH)/COLAMD/Lib
 KLULIBPATH=$(SSPATH)/KLU/Lib
 # use the first definition below for static libs, the second for shared libs
-SSLIBPATHS=-L${GRIDSAPPSD}/lib -L$(SSCONFLIBPATH) -L$(CSLIBPATH) -L$(AMDLIBPATH) -L$(BTFLIBPATH) -L$(COLAMDLIBPATH) -L$(KLULIBPATH)
+SSLIBPATHS=-L$(GRIDAPPSD)/lib -L$(SSCONFLIBPATH) -L$(CSLIBPATH) -L$(AMDLIBPATH) -L$(BTFLIBPATH) -L$(COLAMDLIBPATH) -L$(KLULIBPATH)
 #SSLIBPATHS=-L$(SSPATH)/lib
 SSLIBS=-lklu -lamd -lbtf -lcolamd -lcxsparse -lsuitesparseconfig
 

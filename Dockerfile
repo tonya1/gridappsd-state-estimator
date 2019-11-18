@@ -6,8 +6,11 @@ RUN apt-get update \
     && apt-get install -y \
        m4 \
        liblapack-dev \
+       liblapack \
        libblas-dev \
+       libblas \
        libssl-dev \
+       libssl \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apt/archives/*
 
@@ -35,10 +38,4 @@ RUN cd $TEMP_DIR \
     && make LAPACK=-llapack BLAS=-lblas \
     && cd ${TEMP_DIR}/gridappsd-state-estimator/state-estimator \
     && make 
-
-
-    #\
-    #&& cd /tmp \
-    #&& /bin/rm -r ${TEMP_DIR}/gridlab-d
-
 

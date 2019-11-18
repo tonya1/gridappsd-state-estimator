@@ -7,6 +7,7 @@ RUN apt-get update \
        m4 \
        liblapack-dev \
        libblas-dev \
+       libssl-dev \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apt/archives/*
 
@@ -25,18 +26,15 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${FNCS_INSTALL}/lib
 # ----------------------------------------------------
 
 RUN cd $TEMP_DIR \
-
-RUN cd $TEMP_DIR \
-    && git clone https://github.com/gridappsd/gridappsd-state-estimator.git -b develop --single-branch \
+    && git clone https://github.com/tonya1/gridappsd-state-estimator.git -b add_docker --single-branch \
     && cd gridappsd-state-estimator/state-estimator \
     && git clone https://github.com/gridappsd/json.git \
     && cd ${TEMP_DIR}/gridappsd-state-estimator/state-estimator \
     && git clone https://github.com/gridappsd/SuiteSparse.git -b v5.6.0 --single-branch \
     && cd SuiteSparse \
-    && make LAPACK=-llapack BLAS=-lblas 
-#\
-#    && cd ${TEMP_DIR}/gridappsd-state-estimator/state-estimator \
-#    && make 
+    && make LAPACK=-llapack BLAS=-lblas \
+    && cd ${TEMP_DIR}/gridappsd-state-estimator/state-estimator \
+    && make 
 
 
     #\
